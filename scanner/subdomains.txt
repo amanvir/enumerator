@@ -1,0 +1,7 @@
+test
+staging
+live
+production
+about
+ir
+home
