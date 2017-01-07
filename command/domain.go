@@ -9,13 +9,19 @@ import (
 
 func CmdDomain(c *cli.Context) error {
 	domain := c.Args().Get(0)
+	wordList := c.Args().Get(1)
 
 	if domain == "" {
 		fmt.Println("Please specify a domain")
 		os.Exit(2)
 	}
 
-	subdomain.Bruteforce(domain)
+	if wordList == "" {
+		fmt.Println("Please specify a wordlist")
+		os.Exit(2)
+	}
+
+	subdomain.Bruteforce(domain, wordList)
 
 	return nil
 }
