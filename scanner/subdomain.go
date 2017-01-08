@@ -25,12 +25,13 @@ func Bruteforce(domain string, wordList string) {
 		name := fileScanner.Text()
 		host := name + "." + domain
 
-		ips, err := net.LookupIP(host)
+		ips, err := net.LookupCNAME(host)
 
 		if err != nil {
-			fmt.Println(host)
+			fmt.Println("Not found")
 			fmt.Println(err)
 		} else {
+			fmt.Println("Found")
 			fmt.Println(host)
 			fmt.Println(ips)
 		}
